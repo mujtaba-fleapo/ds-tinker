@@ -1,0 +1,46 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
+    "allowJs": false,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "declarationMap": true,
+    "outDir": "dist",
+    // output .d.ts declaration files for consumers
+    "declaration": true,
+    "declarationDir": "dist",
+    // output .js.map sourcemap files for consumers
+    "sourceMap": true,
+    // match output dir to input dir. e.g. dist/index instead of dist/src/index
+    "rootDir": "src",
+    // "paths": {
+    //   "@/src/*": ["./src/*"],
+    //   "@/components/*": ["./src/components/*"],
+    //   "@/icons/*": ["./src/elements/icons/*"],
+    //   "@/images/*": ["./src/assets/images/*"],
+    //   "@/styles/*": ["./src/styles/*"],
+    //   "@/theme/*": ["./src/theme/*"]
+    // }
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
