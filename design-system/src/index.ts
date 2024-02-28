@@ -1,20 +1,20 @@
 // Basic
-export * from './styles/breakpoints';
+export * from "./styles/breakpoints";
 
 // Theme
-export * from './theme';
+export * from "./theme";
 
 // Typography
-export * from './Typography';
+export * from "./Typography";
 
 // Colors
-export * from './styles/colors';
+export * from "./styles/colors";
 
 // Icons
-export * from './elements/icons';
+export * from "./elements/icons";
 
 // Elements
-export * from './Checkbox';
+export * from "./Checkbox";
 
-export * from './CheckboxList';
-export * from './Input';
+export * from "./CheckboxList";
+export * from "./Input";

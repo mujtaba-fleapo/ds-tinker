@@ -3,6 +3,7 @@ import json from "@rollup/plugin-json";
 import resolve from "@rollup/plugin-node-resolve";
 import terser from "@rollup/plugin-terser";
 import typescript from "@rollup/plugin-typescript";
+import typescript2 from "rollup-plugin-typescript2";
 import postcssImport from "postcss-import";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import postcss from "rollup-plugin-postcss";
@@ -11,6 +12,7 @@ import { readdirSync } from "fs";
 const packageJson = {
   name: "@mujtaba-fleapo/design-system",
   module: "./dist/index.js",
+  dir: "dist",
 };
 
 const getFolders = (entry) => {
@@ -22,12 +24,14 @@ const getFolders = (entry) => {
 };
 
 const plugins = [
+  resolve(),
   typescript({
     exclude: ["**/*.stories.ts*"],
+    tsconfig: "./tsconfig.json",
+    // useTsconfigDeclarationDir: true,
   }),
   peerDepsExternal(),
   json(),
-  resolve(),
   commonjs(),
   postcss({
     extensions: [".scss", ".css"],
@@ -39,7 +43,22 @@ const plugins = [
 ];
 
 const subfolderPlugins = (folderName) => [
-  ...plugins,
+  resolve(),
+  typescript2({
+    exclude: ["**/*.stories.ts*"],
+    tsconfig: "./tsconfig.json",
+    useTsconfigDeclarationDir: true,
+  }),
+  peerDepsExternal(),
+  json(),
+  commonjs(),
+  postcss({
+    extensions: [".scss", ".css"],
+    plugins: [postcssImport()],
+    extract: false,
+    minimize: true,
+  }),
+  terser(),
   generatePackageJson({
     baseContents: {
       name: `${packageJson.name}/${folderName}`,
@@ -72,15 +91,22 @@ const rootConfig = {
   output: [
     {
       file: packageJson.module,
+      // dir: packageJson.dir,
       format: "esm",
       sourcemap: true,
       exports: "named",
+      // preserveModules: true,
+      // preserveModulesRoot: "src",
     },
   ],
   plugins,
   external: ["react", "react-dom", "fs", "@storybook/*"],
 };
 
-const rollupConfig = [...folderBuilds, rootConfig];
+const rollupConfig = [
+  //
+  ...folderBuilds,
+  rootConfig,
+];
 
-export default rollupConfig;
+export default rollupConfig.reverse();

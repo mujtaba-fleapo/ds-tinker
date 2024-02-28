@@ -1,7 +1,8 @@
 import Head from "next/head";
 import { Inter } from "next/font/google";
 import { Input } from '@mujtaba-fleapo/design-system/Input';
-import { Card } from '@govtechsg/sgds-react/Card';
+import { Accordion } from '@govtechsg/sgds-react/Accordion';
+// import { Input as DSInput } from '@fanfix/design-system';
 import styles from "@/styles/Home.module.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -20,9 +21,9 @@ export default function Home() {
           <Input value={'custom'} id="input" onChange={((e: any) => console.log(e))} />
         </div>
         <div className={styles.description}>
-          {/* <Card>
-            <p>Card</p>
-          </Card> */}
+          {/* <Checkbox /> */}
+        </div>
+        <div className={styles.description}>
         </div>
       </main>
     </>

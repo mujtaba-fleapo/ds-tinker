@@ -17,17 +17,13 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
+    "declaration": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
-    "declarationMap": true,
-    "outDir": "dist",
-    // output .d.ts declaration files for consumers
-    "declaration": true,
-    "declarationDir": "dist",
-    // output .js.map sourcemap files for consumers
     "sourceMap": true,
-    // match output dir to input dir. e.g. dist/index instead of dist/src/index
-    "rootDir": "src",
+    // "declarationMap": true,
+    "outDir": "dist",
+    "declarationDir": "dist",
     // "paths": {
     //   "@/src/*": ["./src/*"],
     //   "@/components/*": ["./src/components/*"],
